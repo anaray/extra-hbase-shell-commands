@@ -8,7 +8,7 @@ class Hbase::Table
         self.scan(args) do |row, cells|
           self.delete(row, args['COLUMNS'])
           puts "succesfully deleted row #{row}"
-     end
+        end
   end
 
 end
