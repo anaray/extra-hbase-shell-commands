@@ -13,4 +13,7 @@ Usage:
 	Deletes those rows whose values starts with a pattern  (below example deletes those rows which starts with TW_)
 	 
         hbase(main):009:0> @hbase.table('hbase_table1',nil).delete_row_by_pattern!( {COLUMNS => 'articles:content', STARTROW => 'TW_'} )
+
+        hbase(main):009:0> @hbase.table('hbase_table1',nil).delete_row_by_pattern!( {FILTER => "(PrefixFilter ('TW')"} )
             
+        
