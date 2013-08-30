@@ -10,10 +10,10 @@ Usage:
 
 
 1. delete_row_by_pattern :
-	Deletes those rows whose values starts with a pattern  (below example deletes those rows which starts with TW_)
+	Deletes rows using regex pattern  (below example deletes those rows which starts with bmw_m5, bmw_m3 )
 	 
-        hbase(main):009:0> @hbase.table('hbase_table1',nil).delete_row_by_pattern!( {COLUMNS => 'articles:content', STARTROW => 'TW_'} )
+        hbase(main):009:0> @hbase.table('cars',nil).delete_row_by_pattern!("bmw_m5",COLUMNS=>'make')
 
-        hbase(main):009:0> @hbase.table('hbase_table1',nil).delete_row_by_pattern!( {FILTER => "(PrefixFilter ('TW')"} )
+        hbase(main):009:0> @hbase.table('cars',nil).delete_row_by_pattern!("bmw_m[\d]",COLUMNS=>'make')
             
         
